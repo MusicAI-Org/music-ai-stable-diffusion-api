@@ -18,7 +18,7 @@ version = model.versions.get(
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Health_Check": "Ok"}
 
 
 @app.get("/generate-image/{prompt}")
