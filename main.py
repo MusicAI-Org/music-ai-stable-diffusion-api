@@ -17,7 +17,7 @@ version = model.versions.get(
     "db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf")
 
 # add CORS middleware
-origins = ["http://localhost:3000"]
+origins = ["http://localhost:3000/", "https://music-ai.vercel.app/"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
