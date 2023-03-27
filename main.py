@@ -1,5 +1,6 @@
 import replicate
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from config import Settings
 
 app = FastAPI()
@@ -15,6 +16,15 @@ model = client.models.get("stability-ai/stable-diffusion")
 version = model.versions.get(
     "db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf")
 
+# add CORS middleware
+origins = ["http://localhost:3000"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def read_root():
