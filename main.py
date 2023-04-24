@@ -8,13 +8,14 @@ setting = Settings()
 
 # Set the API token
 api_token = setting.API_TOKEN
+model_version = setting.MODEL_VERSION
 
 # create a replicate client to set the api token
 client = replicate.Client(api_token=api_token)
 
 model = client.models.get("stability-ai/stable-diffusion")
 version = model.versions.get(
-    "db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf")
+    model_version)
 
 # add CORS middleware
 origins = ["http://localhost:3000", "https://music-ai.vercel.app"]
